@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FoodTimelineComponent } from './food-timeline/food-timeline.component';
+import { DayPipe } from './day.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FoodTimelineComponent,
+    DayPipe
   ],
   imports: [
     BrowserModule
