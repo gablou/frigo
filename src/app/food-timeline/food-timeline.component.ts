@@ -8,9 +8,18 @@ import { Moment } from 'moment';
   styleUrls: ['./food-timeline.component.scss']
 })
 export class FoodTimelineComponent implements OnInit {
-  now = moment();
+  now = moment().startOf('day');
+  private _dluo: Moment;
 
-  @Input() dluo: Moment;
+  range = 0;
+
+  @Input() set dluo (date: Moment){
+    this._dluo = date;
+    this.range = date.diff(this.now, 'day');
+  }
+  get dluo () {
+    return this._dluo;
+  }
 
   constructor() { }
 
@@ -18,5 +27,3 @@ export class FoodTimelineComponent implements OnInit {
   }
 
 }
-
-// https://stackoverflow.com/questions/36354325/angular-2-ngfor-using-numbers-instead-collections

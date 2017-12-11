@@ -7,7 +7,7 @@ import * as moment from 'moment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  now = moment();
+  now = moment().startOf('day');
   max = moment('30/12/17', 'DD/MM/YY');
 
   range = this.max.diff(this.now, 'day');
