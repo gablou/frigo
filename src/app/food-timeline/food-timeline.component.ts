@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { Moment } from 'moment';
+import { FoodItem } from '../models/food-item';
 
 @Component({
   selector: 'frg-food-timeline',
@@ -9,16 +10,16 @@ import { Moment } from 'moment';
 })
 export class FoodTimelineComponent implements OnInit {
   now = moment().startOf('day');
-  private _dluo: Moment;
+  private _foodItem: FoodItem;
 
   range = 0;
 
-  @Input() set dluo (date: Moment){
-    this._dluo = date;
-    this.range = date.diff(this.now, 'day');
+  @Input() set food (food: FoodItem){
+    this._foodItem = food;
+    this.range = food.dluo.diff(this.now, 'day');
   }
-  get dluo () {
-    return this._dluo;
+  get food () {
+    return this._foodItem;
   }
 
   constructor() { }
